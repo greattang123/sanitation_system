@@ -25,7 +25,6 @@ public class Achievement {
     public Achievement(int id){
         this.id = id;
     }
-
     public Achievement(String theme, String content, User user) {
         this.theme = theme;
         this.content = content;
