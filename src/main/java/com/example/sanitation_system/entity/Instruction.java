@@ -17,6 +17,7 @@ public class Instruction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    //请求id request id是否需要?
     private String theme;
     private String content;
     private String instructor;

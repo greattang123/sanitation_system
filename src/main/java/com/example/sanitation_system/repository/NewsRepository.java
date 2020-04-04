@@ -9,8 +9,9 @@ import java.util.List;
 
 @Repository
 public interface NewsRepository extends CustomizedRepository<News,Integer>{
-    @Query("select n from News n where n.id =: id")
+    @Query("select n from News n where n.id =:id")
     News findById(@Param("id") int id);
+
     @Query("select n from News n where n.content is not null")
     List<News> findAllNews();
 }

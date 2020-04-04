@@ -9,14 +9,15 @@ import java.util.List;
 
 @Repository
 public interface CarRepository extends CustomizedRepository<Car,Integer>{
-    @Query("select c from Car c where c.id =: id")
+    @Query("select c from Car c where c.id =:id")
     Car findById(@Param("id") int id);
-    @Query("select c from Car c where c.licence =: licence")
-        //基于车牌查找车辆
+
+    @Query("select c from Car c where c.licence =:licence")
     Car findByLicence(@Param("licence") String licence);
-    @Query("select c from Car c where c.no =: no")
-        //基于内部编号查找车辆
+
+    @Query("select c from Car c where c.no =:no")
     Car findByNo(@Param("no") String no);
+
     @Query("select c from Car c where c.licence is not null order by c.no")
     List<Car> findAllCar();
 }

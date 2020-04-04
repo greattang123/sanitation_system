@@ -7,10 +7,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DirectorRepository extends CustomizedRepository<Director,Integer>{
-    @Query("select d from Director d where d.id =: id")
-        //基于ID查找环卫主任
+    @Query("select d from Director d where d.id =:id")
     Director findById(@Param("id") int id);
-    @Query("select d from Director d where d.no =: no")
-        //基于工号查找环卫主任
+
+    @Query("select d from Director d where d.no =:no")
     Director findByNo(@Param("no") String no);
 }

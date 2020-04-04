@@ -16,10 +16,9 @@ public class Store {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String category;
-    private int number; //现有数量
     private String name;
-    @OneToMany
-    private List<Material> materialList;
+    private int number; //现有数量
+
 
     public Store(int id){
         this.id = id;

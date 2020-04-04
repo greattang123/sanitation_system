@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TaskRepository extends CustomizedRepository<Task,Integer>{
-    @Query("select t from Task t where t.id =: id")
+    @Query("select t from Task t where t.id =:id")
     Task findById(@Param("id") int id);
 
 }

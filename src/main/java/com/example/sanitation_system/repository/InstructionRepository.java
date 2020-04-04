@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InstructionRepository extends CustomizedRepository<Instruction,Integer>{
-    @Query("select i from Instruction i where i.id =: id")
+    @Query("select i from Instruction i where i.id =:id")
     Instruction findById(@Param("id") int id);
 
 }

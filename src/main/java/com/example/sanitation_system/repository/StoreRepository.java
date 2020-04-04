@@ -7,10 +7,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StoreRepository extends CustomizedRepository<Store,Integer>{
-    @Query("select s from Store s where s.id =: id")
+    @Query("select s from Store s where s.id =:id")
     Store findById(@Param("id") int id);
-    @Query("select s from Store s where s.name =: name")
+
+    @Query("select s from Store s where s.name =:name")
     Store findByName(@Param("name") String name);
+
     @Query("select s from Store s where s.name is not null order by s.number")
     Store findAllStore();
 }

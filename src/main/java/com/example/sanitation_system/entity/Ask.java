@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Request {
+public class Ask {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -18,14 +18,12 @@ public class Request {
     private String content;
     @ManyToOne
     private User user;
-    @ManyToOne
-    private Head head;
 
-    public Request(int id){
+    public Ask(int id){
         this.id = id;
     }
 
-    public Request(String theme, String content) {
+    public Ask(String theme, String content) {
         this.theme = theme;
         this.content = content;
     }

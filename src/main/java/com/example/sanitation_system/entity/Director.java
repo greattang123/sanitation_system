@@ -13,26 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 //环卫主任
-public class Director {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    //禁止password序列化
-    private String password;
-    @Column(unique = true)
-    private String no; //工号
-    private String name;
-    private boolean sex;
-    @OneToMany
-    private List<Head> heads;
-
-    public Director(int id){
-        this.id = id;
-    }
-
-    public Director(String no, String name) {
-        this.no = no;
-        this.name = name;
-    }
+public class Director extends User{
+    private int authority = 3;
 }

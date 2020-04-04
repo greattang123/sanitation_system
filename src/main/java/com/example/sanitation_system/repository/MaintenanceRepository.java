@@ -9,10 +9,12 @@ import java.util.List;
 
 @Repository
 public interface MaintenanceRepository extends CustomizedRepository<Maintenance,Integer>{
-    @Query("select m from Maintenance m where m.id =: id")
+    @Query("select m from Maintenance m where m.id =:id")
     Maintenance findById(@Param("id") int id);
-    @Query("select m from Maintenance m where m.licence =: licence")
+
+    @Query("select m from Maintenance m where m.licence =:licence")
     List<Maintenance> findByLicence(@Param("licence") String licence);
+
     @Query("select m from Maintenance m where m.licence is not null")
     List<Maintenance> findAllMaintenance();
 }

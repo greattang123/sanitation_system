@@ -15,9 +15,9 @@ public class Record {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String licence;
-    private String outTime;
-    private String backTime;
-    private String location; //维修地点
+    private String outTime;  //出车时间
+    private String backTime; //回来时间
+    private String location; //途经地点
     @Column(columnDefinition = "TEXT")
     private String detail;
 

@@ -9,10 +9,12 @@ import java.util.List;
 
 @Repository
 public interface RecordRepository extends CustomizedRepository<Record,Integer>{
-    @Query("select r from Record r where r.id =: id")
+    @Query("select r from Record r where r.id =:id")
     Record findById(@Param("id") int id);
-    @Query("select r from Record r where r.licence =: licence")
+
+    @Query("select r from Record r where r.licence =:licence")
     List<Record> findByLicence(@Param("licence") String licence);
+
     @Query("select r from Record r where r.detail is not null")
     List<Record> findAllRecord();
 }

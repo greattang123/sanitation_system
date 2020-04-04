@@ -1,22 +1,23 @@
 package com.example.sanitation_system.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-//片区负责人
-public class Head extends User{
+public class Worker extends User {
     private int age;
     @Column(columnDefinition = "TEXT")
     private String intro;
-    private int authority = 2;
-    private String area;
+    private int authority = 1;
+    private String department;
+    @ManyToOne
+    private Head head;
 }

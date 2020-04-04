@@ -19,12 +19,17 @@ public class Achievement {
     private String image; //待转换成图片
     @ManyToOne
     private User user;
-    @ManyToOne
-    private Head head;
+
 
     public Achievement(int id){
         this.id = id;
     }
+
+    public Achievement(String theme,String content){
+        this.theme = theme;
+        this.content = content;
+    }
+
     public Achievement(String theme, String content, User user) {
         this.theme = theme;
         this.content = content;

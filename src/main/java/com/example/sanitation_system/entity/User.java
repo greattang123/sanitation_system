@@ -6,41 +6,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-//环卫工人
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(unique = true)
+    private String no; //工号
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     //禁止password序列化
     private String password;
-    @Column(unique = true)
-    private String no; //工号
     private String name;
-    private int age;
-    private boolean sex;
-    @Column(columnDefinition = "TEXT")
-    private String intro;
-    private String department;
-    private int authority;
-    @OneToMany
-    private List<Achievement> achievements;
-    @OneToMany
-    private List<Request> requests;
-    @ManyToOne
-    private Head head;
-    public User(int id){
-        this.id = id;
-    }
-
-    public User(String no, String name) {
-        this.no = no;
-        this.name = name;
-    }
+    private Boolean sex;
+    public static final int WORKER_AUTHORITY = 1;
+    public static final int HEAD_AUTHORITY = 2;
+    public static final int DIRECTOR_AUTHORITY = 3;
+    private int authority = 0;
 }
